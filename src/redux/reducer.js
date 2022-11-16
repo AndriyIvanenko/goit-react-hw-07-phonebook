@@ -16,6 +16,10 @@ const initialContacts = localStorage.getItem('contacts')
   ? JSON.parse(localStorage.getItem('contacts'))
   : [];
 
+// const initialContactsState = {
+//   items: [],
+// };
+
 export const contactsReducer = createReducer(initialContacts, {
   [addContact.type]: (state, action) => {
     const updatedContacts = [...state, action.payload];
@@ -23,7 +27,9 @@ export const contactsReducer = createReducer(initialContacts, {
     return updatedContacts;
   },
   [deleteContact.type]: (state, action) => {
-    const updatedContacts = state.filter(contact => contact.id !== action.payload);
+    const updatedContacts = state.filter(
+      contact => contact.id !== action.payload
+    );
     localStorage.setItem('contacts', JSON.stringify(updatedContacts));
     return updatedContacts;
   },

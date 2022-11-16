@@ -12,7 +12,12 @@ export const Filter = () => {
   return (
     <FilterSection>
       <Label htmlFor="filter">Find contacts by name</Label>
-      <Input type="text" name="filter" onChange={filterChangeHandler} />
+      <Input
+        type="text"
+        name="filter"
+        autoComplete="off"
+        onChange={filterChangeHandler}
+      />
     </FilterSection>
   );
 };
